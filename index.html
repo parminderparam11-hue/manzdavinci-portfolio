@@ -86,9 +86,9 @@ h2{margin:0 0 .5rem;font:800 clamp(1.8rem,4.5vw,3rem)/1.1 var(--display);letter-
 .intro{margin:0 0 2rem;color:var(--muted);max-width:60ch}
 .divider{height:1px;border:0;background:linear-gradient(90deg,transparent,#5b6677,transparent);margin:0}
 .grid{display:grid;gap:1.4rem}
-.grid.shorts{grid-template-columns:repeat(4,1fr)}
+.grid.shorts{grid-template-columns:repeat(3,minmax(0,320px));justify-content:center}
 .grid.cinema{grid-template-columns:repeat(2,1fr)}
-.grid.motion{grid-template-columns:repeat(3,1fr)}
+.grid.motion{grid-template-columns:repeat(2,1fr)}
 figure{margin:0}
 figcaption{margin-top:.65rem;font-size:.95rem;color:var(--muted)}
 figcaption b{display:block;color:var(--text);font-weight:700}
@@ -188,32 +188,25 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
     <h2 class="chrome">High-Retention Shorts</h2>
     <p class="intro">Vertical edits for TikTok, Reels and YouTube Shorts: fast hooks, tight pacing, captions that keep people watching.</p>
     <div class="grid shorts">
-      <!-- For each card: paste an embed link in data-embed OR an mp4 path in data-mp4. Edit the caption text underneath. -->
       <figure>
-        <div class="frame r9" data-title="Short 1" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Short 1<br>9:16</span></div>
+        <div class="frame r9" data-title="Budget-Friendly Workout Motivation Tips" data-embed="" data-mp4="From Klickpin.com- Budget-Friendly Workout Motivation Tips You Need Right Now-pin-id-1102889396311628981.mp4" data-poster="">
+          <div class="ph"><span class="play"></span><span>Budget-Friendly Workout Motivation Tips</span></div>
         </div>
-        <figcaption><b>Short title 1</b>Niche / result (e.g. 2.1M views)</figcaption>
+        <figcaption><b>Budget-Friendly Workout Motivation Tips</b>Fitness motivation, vertical short</figcaption>
       </figure>
       <figure>
-        <div class="frame r9" data-title="Short 2" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Short 2<br>9:16</span></div>
+        <div class="frame r9" data-title="Minimalist Bedroom Decor Upgrade" data-embed="" data-mp4="From Klickpin.com- Fresh minimalist bedroom decor that can instantly upgrade your look room party or daily routine for ideas worth saving right no.mp4" data-poster="">
+          <div class="ph"><span class="play"></span><span>Minimalist Bedroom Decor Upgrade</span></div>
         </div>
-        <figcaption><b>Short title 2</b>Niche / result</figcaption>
+        <figcaption><b>Minimalist Bedroom Decor Upgrade</b>Home and decor, vertical short</figcaption>
       </figure>
       <figure>
-        <div class="frame r9" data-title="Short 3" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Short 3<br>9:16</span></div>
+        <div class="frame r9" data-title="Green Rainy Day Beauty" data-embed="" data-mp4="From Klickpin.com- Green rainy day beauty for busy days that fit modern everyday life for peaceful pin collections-pin-id-1102889396311628981.mp4" data-poster="">
+          <div class="ph"><span class="play"></span><span>Green Rainy Day Beauty</span></div>
         </div>
-        <figcaption><b>Short title 3</b>Niche / result</figcaption>
+        <figcaption><b>Green Rainy Day Beauty</b>Beauty and lifestyle, vertical short</figcaption>
       </figure>
-      <figure>
-        <div class="frame r9" data-title="Short 4" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Short 4<br>9:16</span></div>
-        </div>
-        <figcaption><b>Short title 4</b>Niche / result</figcaption>
-      </figure>
-      <!-- To add more, copy one <figure>...</figure> block and paste it here. -->
+      <!-- To add more videos, copy one <figure>...</figure> block and paste it above this line. -->
     </div>
   </div>
 </section>
@@ -227,29 +220,18 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
     <p class="intro">Story-driven edits and film-grade color in DaVinci Resolve: brand films, music visuals, documentary and long-form.</p>
     <div class="grid cinema">
       <figure>
-        <div class="frame r16" data-title="Cinematic 1" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Cinematic project 1 &middot; 16:9</span></div>
+        <div class="frame r16" data-title="Tanda Cinematic Final" data-embed="" data-mp4="Tanda Cinematic Final.mp4" data-poster="">
+          <div class="ph"><span class="play"></span><span>Tanda Cinematic Final</span></div>
         </div>
-        <figcaption><b>Project title 1</b>Client / what you did (edit, grade, sound)</figcaption>
+        <figcaption><b>Tanda Cinematic Final</b>Cinematic edit and color grade</figcaption>
       </figure>
       <figure>
-        <div class="frame r16" data-title="Cinematic 2" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Cinematic project 2 &middot; 16:9</span></div>
+        <div class="frame r16" data-title="PC Edit Complete 4K" data-embed="" data-mp4="Pc Edit Cpmplte 4K.mp4" data-poster="">
+          <div class="ph"><span class="play"></span><span>PC Edit Complete 4K</span></div>
         </div>
-        <figcaption><b>Project title 2</b>Client / what you did</figcaption>
+        <figcaption><b>PC Edit Complete 4K</b>Full edit, delivered in 4K</figcaption>
       </figure>
-      <figure>
-        <div class="frame r16" data-title="Cinematic 3" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Cinematic project 3 &middot; 16:9</span></div>
-        </div>
-        <figcaption><b>Project title 3</b>Client / what you did</figcaption>
-      </figure>
-      <figure>
-        <div class="frame r16" data-title="Cinematic 4" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Cinematic project 4 &middot; 16:9</span></div>
-        </div>
-        <figcaption><b>Project title 4</b>Client / what you did</figcaption>
-      </figure>
+      <!-- To add more videos, copy one <figure>...</figure> block and paste it above this line. -->
     </div>
   </div>
 </section>
@@ -263,23 +245,18 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
     <p class="intro">Animated titles, lower thirds, logo stings and explainer visuals built in After Effects.</p>
     <div class="grid motion">
       <figure>
-        <div class="frame r16" data-title="Motion 1" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Motion piece 1</span></div>
+        <div class="frame r16" data-title="Creative Edit Complete 4K" data-embed="" data-mp4="Creative Edit Comp;Lte 4K.mp4" data-poster="">
+          <div class="ph"><span class="play"></span><span>Creative Edit Complete 4K</span></div>
         </div>
-        <figcaption><b>Piece title 1</b>Logo sting / title / explainer</figcaption>
+        <figcaption><b>Creative Edit Complete 4K</b>Creative edit with motion graphics, 4K</figcaption>
       </figure>
       <figure>
-        <div class="frame r16" data-title="Motion 2" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Motion piece 2</span></div>
+        <div class="frame r16" data-title="Timeline 1" data-embed="" data-mp4="Timeline 1(1).mp4" data-poster="">
+          <div class="ph"><span class="play"></span><span>Timeline 1</span></div>
         </div>
-        <figcaption><b>Piece title 2</b>Logo sting / title / explainer</figcaption>
+        <figcaption><b>Timeline 1</b>Motion and effects edit</figcaption>
       </figure>
-      <figure>
-        <div class="frame r16" data-title="Motion 3" data-embed="" data-mp4="" data-poster="">
-          <div class="ph"><span class="play"></span><span>Motion piece 3</span></div>
-        </div>
-        <figcaption><b>Piece title 3</b>Logo sting / title / explainer</figcaption>
-      </figure>
+      <!-- To add more videos, copy one <figure>...</figure> block and paste it above this line. -->
     </div>
   </div>
 </section>
@@ -322,8 +299,18 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
 /* ===== CLICK-TO-LOAD VIDEOS =====
    Every .frame reads two attributes:
      data-embed = YouTube/Vimeo EMBED url  (https://www.youtube.com/embed/VIDEO_ID)
-     data-mp4   = path or url to your own mp4 (videos/my-edit.mp4)
+     data-mp4   = the exact mp4 FILENAME (spaces, brackets and ; are fine, encoding is automatic)
    If both are empty the placeholder stays. Nothing loads until clicked, so the page stays fast. */
+
+/* WHERE YOUR MP4 FILES LIVE IN THE REPO.
+   "videos/" = a folder named videos next to index.html.  Use "" if the mp4 files sit beside index.html. */
+var VIDEO_FOLDER = 'videos/';
+
+function videoUrl(name) {
+  if (/^(https?:)?\/\//.test(name) || name.indexOf('/') > -1) return name;   // full link or path: used as written
+  return VIDEO_FOLDER + encodeURIComponent(name);
+}
+
 (function () {
   var frames = document.querySelectorAll('.frame');
 
@@ -349,7 +336,7 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
         el.loading = 'lazy';
       } else if (mp4) {
         el = document.createElement('video');
-        el.src = mp4; el.controls = true; el.autoplay = true; el.playsInline = true;
+        el.src = videoUrl(mp4); el.controls = true; el.autoplay = true; el.playsInline = true;
         if (f.dataset.poster) el.poster = f.dataset.poster;
       } else { return; }
       f.appendChild(el);
