@@ -69,16 +69,12 @@ h1 .sub{display:block;margin-top:.9rem;font:600 clamp(1.15rem,2.6vw,1.9rem)/1.25
 .hero .cta-row{margin-bottom:2.5rem}
 
 /* ===== VIDEO FRAMES ===== */
-.frame{position:relative;width:100%;background:linear-gradient(135deg,#121823,#0a0d13);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:box-shadow .2s,border-color .2s}
+.frame{position:relative;width:100%;background:linear-gradient(135deg,#121823,#0a0d13);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
 .frame.r16{aspect-ratio:16/9}
 .frame.r9{aspect-ratio:9/16}
-.frame iframe,.frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
 .frame:hover{border-color:#6b7686;animation:jitter .3s steps(2) 1;box-shadow:-4px 0 0 rgba(0,229,255,.55),4px 0 0 rgba(255,46,147,.55)}
 @keyframes jitter{0%{transform:translate(0)}33%{transform:translate(-3px,1px)}66%{transform:translate(3px,-1px)}100%{transform:translate(0)}}
-.ph{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.7rem;text-align:center;padding:1rem;color:var(--muted);font-size:.9rem}
-.ph .play{width:3.4rem;height:3.4rem;border-radius:50%;border:2px solid #b6c0cf;display:grid;place-items:center}
-.ph .play::after{content:"";border-left:.9rem solid #dfe6ef;border-block:.55rem solid transparent;margin-left:.2rem}
-.frame.is-live .ph{display:none}
 
 /* ===== SECTIONS ===== */
 section{padding:clamp(3rem,7vw,5.5rem) 0}
@@ -162,20 +158,9 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
       <a class="btn btn-ghost btn-lg" href="mailto:your@email.com?subject=Video%20editing%20inquiry">Email Me</a>
     </div>
 
-    <!--
-      MAIN SHOWREEL
-      Option A (YouTube/Vimeo): put the EMBED url in data-embed.
-         YouTube: https://www.youtube.com/embed/VIDEO_ID
-         Vimeo:   https://player.vimeo.com/video/VIDEO_ID
-      Option B (your own file): put the path in data-mp4, e.g. data-mp4="videos/showreel.mp4"
-      Optional: data-poster="images/showreel.jpg" shows a thumbnail before it is clicked.
-      Videos only load when clicked, so the page stays fast.
-    -->
-    <div class="frame r16" data-title="ManzDavinci showreel"
-         data-embed=""
-         data-mp4=""
-         data-poster="">
-      <div class="ph"><span class="play"></span><span>Main showreel: paste your YouTube/Vimeo embed link in data-embed</span></div>
+    <!-- MAIN SHOWREEL: change the filename in src to your own showreel file when you have one. -->
+    <div class="frame r16">
+      <video src="edit4.mp4" autoplay loop muted playsinline></video>
     </div>
   </div>
 </div>
@@ -183,28 +168,29 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
 <hr class="divider">
 
 <!-- ===================== PORTFOLIO 1: HIGH-RETENTION SHORTS (9:16) ===================== -->
+<!-- Put your VERTICAL videos here. -->
 <section id="shorts">
   <div class="wrap">
     <h2 class="chrome">High-Retention Shorts</h2>
     <p class="intro">Vertical edits for TikTok, Reels and YouTube Shorts: fast hooks, tight pacing, captions that keep people watching.</p>
     <div class="grid shorts">
       <figure>
-        <div class="frame r9" data-title="Budget-Friendly Workout Motivation Tips" data-embed="" data-mp4="From Klickpin.com- Budget-Friendly Workout Motivation Tips You Need Right Now-pin-id-1102889396311628981.mp4" data-poster="">
-          <div class="ph"><span class="play"></span><span>Budget-Friendly Workout Motivation Tips</span></div>
+        <div class="frame r9">
+          <video src="edit1.mp4" autoplay loop muted playsinline></video>
         </div>
-        <figcaption><b>Budget-Friendly Workout Motivation Tips</b>Fitness motivation, vertical short</figcaption>
+        <figcaption><b>Short edit 1</b>Vertical short</figcaption>
       </figure>
       <figure>
-        <div class="frame r9" data-title="Minimalist Bedroom Decor Upgrade" data-embed="" data-mp4="From Klickpin.com- Fresh minimalist bedroom decor that can instantly upgrade your look room party or daily routine for ideas worth saving right no.mp4" data-poster="">
-          <div class="ph"><span class="play"></span><span>Minimalist Bedroom Decor Upgrade</span></div>
+        <div class="frame r9">
+          <video src="edit2.mp4" autoplay loop muted playsinline></video>
         </div>
-        <figcaption><b>Minimalist Bedroom Decor Upgrade</b>Home and decor, vertical short</figcaption>
+        <figcaption><b>Short edit 2</b>Vertical short</figcaption>
       </figure>
       <figure>
-        <div class="frame r9" data-title="Green Rainy Day Beauty" data-embed="" data-mp4="From Klickpin.com- Green rainy day beauty for busy days that fit modern everyday life for peaceful pin collections-pin-id-1102889396311628981.mp4" data-poster="">
-          <div class="ph"><span class="play"></span><span>Green Rainy Day Beauty</span></div>
+        <div class="frame r9">
+          <video src="edit3.mp4" autoplay loop muted playsinline></video>
         </div>
-        <figcaption><b>Green Rainy Day Beauty</b>Beauty and lifestyle, vertical short</figcaption>
+        <figcaption><b>Short edit 3</b>Vertical short</figcaption>
       </figure>
       <!-- To add more videos, copy one <figure>...</figure> block and paste it above this line. -->
     </div>
@@ -220,16 +206,16 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
     <p class="intro">Story-driven edits and film-grade color in DaVinci Resolve: brand films, music visuals, documentary and long-form.</p>
     <div class="grid cinema">
       <figure>
-        <div class="frame r16" data-title="Tanda Cinematic Final" data-embed="" data-mp4="Tanda Cinematic Final.mp4" data-poster="">
-          <div class="ph"><span class="play"></span><span>Tanda Cinematic Final</span></div>
+        <div class="frame r16">
+          <video src="edit4.mp4" autoplay loop muted playsinline></video>
         </div>
-        <figcaption><b>Tanda Cinematic Final</b>Cinematic edit and color grade</figcaption>
+        <figcaption><b>Cinematic edit 1</b>Edit and color grade</figcaption>
       </figure>
       <figure>
-        <div class="frame r16" data-title="PC Edit Complete 4K" data-embed="" data-mp4="Pc Edit Cpmplte 4K.mp4" data-poster="">
-          <div class="ph"><span class="play"></span><span>PC Edit Complete 4K</span></div>
+        <div class="frame r16">
+          <video src="edit5.mp4" autoplay loop muted playsinline></video>
         </div>
-        <figcaption><b>PC Edit Complete 4K</b>Full edit, delivered in 4K</figcaption>
+        <figcaption><b>Cinematic edit 2</b>Edit and color grade</figcaption>
       </figure>
       <!-- To add more videos, copy one <figure>...</figure> block and paste it above this line. -->
     </div>
@@ -245,16 +231,16 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
     <p class="intro">Animated titles, lower thirds, logo stings and explainer visuals built in After Effects.</p>
     <div class="grid motion">
       <figure>
-        <div class="frame r16" data-title="Creative Edit Complete 4K" data-embed="" data-mp4="Creative Edit Comp;Lte 4K.mp4" data-poster="">
-          <div class="ph"><span class="play"></span><span>Creative Edit Complete 4K</span></div>
+        <div class="frame r16">
+          <video src="edit6.mp4" autoplay loop muted playsinline></video>
         </div>
-        <figcaption><b>Creative Edit Complete 4K</b>Creative edit with motion graphics, 4K</figcaption>
+        <figcaption><b>Motion graphics 1</b>Animation and effects</figcaption>
       </figure>
       <figure>
-        <div class="frame r16" data-title="Timeline 1" data-embed="" data-mp4="Timeline 1(1).mp4" data-poster="">
-          <div class="ph"><span class="play"></span><span>Timeline 1</span></div>
+        <div class="frame r16">
+          <video src="edit7.mp4" autoplay loop muted playsinline></video>
         </div>
-        <figcaption><b>Timeline 1</b>Motion and effects edit</figcaption>
+        <figcaption><b>Motion graphics 2</b>Animation and effects</figcaption>
       </figure>
       <!-- To add more videos, copy one <figure>...</figure> block and paste it above this line. -->
     </div>
@@ -296,61 +282,8 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
 </footer>
 
 <script>
-/* ===== CLICK-TO-LOAD VIDEOS =====
-   Every .frame reads two attributes:
-     data-embed = YouTube/Vimeo EMBED url  (https://www.youtube.com/embed/VIDEO_ID)
-     data-mp4   = the exact mp4 FILENAME (spaces, brackets and ; are fine, encoding is automatic)
-   If both are empty the placeholder stays. Nothing loads until clicked, so the page stays fast. */
-
-/* WHERE YOUR MP4 FILES LIVE IN THE REPO.
-   "videos/" = a folder named videos next to index.html.  Use "" if the mp4 files sit beside index.html. */
-var VIDEO_FOLDER = 'videos/';
-
-function videoUrl(name) {
-  if (/^(https?:)?\/\//.test(name) || name.indexOf('/') > -1) return name;   // full link or path: used as written
-  return VIDEO_FOLDER + encodeURIComponent(name);
-}
-
-(function () {
-  var frames = document.querySelectorAll('.frame');
-
-  frames.forEach(function (f) {
-    var poster = f.dataset.poster;
-    if (poster) { f.style.background = 'center/cover no-repeat url("' + poster + '")'; }
-    if (f.dataset.embed || f.dataset.mp4) {
-      f.setAttribute('role', 'button');
-      f.setAttribute('tabindex', '0');
-      f.setAttribute('aria-label', 'Play ' + (f.dataset.title || 'video'));
-      var ph = f.querySelector('.ph span:last-child');
-      if (ph) { ph.textContent = f.dataset.title || 'Play video'; }
-    }
-    function load() {
-      if (f.classList.contains('is-live')) return;
-      var embed = f.dataset.embed, mp4 = f.dataset.mp4, el;
-      if (embed) {
-        el = document.createElement('iframe');
-        el.src = embed + (embed.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
-        el.title = f.dataset.title || 'Video';
-        el.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
-        el.allowFullscreen = true;
-        el.loading = 'lazy';
-      } else if (mp4) {
-        el = document.createElement('video');
-        el.src = videoUrl(mp4); el.controls = true; el.autoplay = true; el.playsInline = true;
-        if (f.dataset.poster) el.poster = f.dataset.poster;
-      } else { return; }
-      f.appendChild(el);
-      f.classList.add('is-live');
-      f.removeAttribute('tabindex');
-    }
-    f.addEventListener('click', load);
-    f.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); }
-    });
-  });
-
-  document.getElementById('yr').textContent = new Date().getFullYear();
-})();
+/* Keeps the footer year current. */
+document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
