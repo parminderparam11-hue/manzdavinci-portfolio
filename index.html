@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ManzDavinci | High-Retention &amp; Cinematic Video Editing</title>
+<meta name="description" content="ManzDavinci: high-retention shorts, cinematic edits, color grading and motion graphics for creators and brands.">
+<meta name="theme-color" content="#06080c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== DESIGN TOKENS ===== */
+:root{
+  --bg:#06080c; --panel:#0d1118; --line:#222a36;
+  --text:#e8edf4; --muted:#8f9aab;
+  --cyan:#00e5ff; --magenta:#ff2e93;
+  --chrome:linear-gradient(110deg,#6b7686 0%,#f8fbff 16%,#8a95a6 30%,#eef3f9 46%,#4b5565 60%,#f8fbff 76%,#7d8898 100%);
+  --display:"Syne","Arial Black",system-ui,sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --pad:clamp(1.1rem,4vw,3rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,iframe,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.wrap{width:min(1180px,100% - 2*var(--pad));margin-inline:auto}
+
+/* ===== LIQUID CHROME TEXT ===== */
+.chrome{background:var(--chrome);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:flow 9s linear infinite}
+@keyframes flow{to{background-position:-260% 0}}
+
+/* ===== GLITCH HOVER (add class "glitch" + data-text="same text") ===== */
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;opacity:0;pointer-events:none;background:none;-webkit-text-fill-color:currentColor}
+.glitch::before{color:var(--cyan)}
+.glitch::after{color:var(--magenta)}
+.glitch:hover::before,.glitch:focus-visible::before{opacity:.9;animation:gl1 .45s steps(2) infinite}
+.glitch:hover::after,.glitch:focus-visible::after{opacity:.9;animation:gl2 .45s steps(2) infinite}
+@keyframes gl1{0%{clip-path:inset(10% 0 70% 0);transform:translate(-4px,0)}50%{clip-path:inset(55% 0 20% 0);transform:translate(4px,1px)}100%{clip-path:inset(80% 0 3% 0);transform:translate(-2px,0)}}
+@keyframes gl2{0%{clip-path:inset(60% 0 15% 0);transform:translate(4px,0)}50%{clip-path:inset(5% 0 78% 0);transform:translate(-4px,-1px)}100%{clip-path:inset(35% 0 45% 0);transform:translate(2px,0)}}
+
+/* ===== HEADER (sticky, holds both CTAs) ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(6,8,12,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+.brand{font:800 1.25rem var(--display);text-decoration:none;letter-spacing:.01em}
+nav{display:flex;gap:1.6rem;font-size:.95rem;color:var(--muted)}
+nav a{text-decoration:none}
+nav a:hover{color:var(--text)}
+.cta-row{display:flex;gap:.6rem;flex-wrap:wrap}
+
+/* ===== BUTTONS ===== */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:.7rem 1.3rem;border-radius:999px;font:700 .95rem var(--body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{color:#05070a;background:var(--chrome);background-size:260% 100%;animation:flow 7s linear infinite}
+.btn-primary:hover{box-shadow:-3px 0 0 var(--cyan),3px 0 0 var(--magenta)}
+.btn-ghost{color:var(--text);border-color:#4a5566;background:transparent}
+.btn-ghost:hover{border-color:var(--text);box-shadow:-3px 0 0 var(--cyan),3px 0 0 var(--magenta)}
+.btn-lg{padding:1rem 2rem;font-size:1.05rem}
+
+/* ===== HERO ===== */
+.hero{padding:clamp(3rem,8vw,6rem) 0 clamp(2.5rem,6vw,4rem);background:radial-gradient(60% 50% at 70% 0%,rgba(140,160,190,.14),transparent 70%)}
+h1{margin:0 0 1.2rem;font:800 clamp(2.6rem,9vw,6.4rem)/.98 var(--display);letter-spacing:-.02em}
+h1 .sub{display:block;margin-top:.9rem;font:600 clamp(1.15rem,2.6vw,1.9rem)/1.25 var(--display);letter-spacing:0;color:var(--text);-webkit-text-fill-color:var(--text)}
+.lead{max-width:56ch;color:var(--muted);margin:0 0 1.8rem}
+.hero .cta-row{margin-bottom:2.5rem}
+
+/* ===== VIDEO FRAMES ===== */
+.frame{position:relative;width:100%;background:linear-gradient(135deg,#121823,#0a0d13);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;transition:box-shadow .2s,border-color .2s}
+.frame.r16{aspect-ratio:16/9}
+.frame.r9{aspect-ratio:9/16}
+.frame iframe,.frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.frame:hover{border-color:#6b7686;animation:jitter .3s steps(2) 1;box-shadow:-4px 0 0 rgba(0,229,255,.55),4px 0 0 rgba(255,46,147,.55)}
+@keyframes jitter{0%{transform:translate(0)}33%{transform:translate(-3px,1px)}66%{transform:translate(3px,-1px)}100%{transform:translate(0)}}
+.ph{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.7rem;text-align:center;padding:1rem;color:var(--muted);font-size:.9rem}
+.ph .play{width:3.4rem;height:3.4rem;border-radius:50%;border:2px solid #b6c0cf;display:grid;place-items:center}
+.ph .play::after{content:"";border-left:.9rem solid #dfe6ef;border-block:.55rem solid transparent;margin-left:.2rem}
+.frame.is-live .ph{display:none}
+
+/* ===== SECTIONS ===== */
+section{padding:clamp(3rem,7vw,5.5rem) 0}
+h2{margin:0 0 .5rem;font:800 clamp(1.8rem,4.5vw,3rem)/1.1 var(--display);letter-spacing:-.01em}
+.intro{margin:0 0 2rem;color:var(--muted);max-width:60ch}
+.divider{height:1px;border:0;background:linear-gradient(90deg,transparent,#5b6677,transparent);margin:0}
+.grid{display:grid;gap:1.4rem}
+.grid.shorts{grid-template-columns:repeat(4,1fr)}
+.grid.cinema{grid-template-columns:repeat(2,1fr)}
+.grid.motion{grid-template-columns:repeat(3,1fr)}
+figure{margin:0}
+figcaption{margin-top:.65rem;font-size:.95rem;color:var(--muted)}
+figcaption b{display:block;color:var(--text);font-weight:700}
+
+/* ===== TECH STACK ===== */
+.stack{background:var(--panel);border-block:1px solid var(--line)}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.6rem}
+.tool{padding:1.2rem 1rem;border:1px solid var(--line);border-radius:12px;text-align:center;font:800 1.1rem var(--display);transition:border-color .2s}
+.tool:hover{border-color:#8a95a6}
+
+/* ===== FOOTER CTA ===== */
+.final{text-align:center;padding-block:clamp(4rem,9vw,7rem)}
+.final h2{font-size:clamp(2rem,6vw,4rem)}
+.final .intro{margin-inline:auto}
+.final .cta-row{justify-content:center}
+footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font-size:.9rem;text-align:center}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:980px){
+  .grid.shorts{grid-template-columns:repeat(2,1fr)}
+  .grid.motion{grid-template-columns:repeat(2,1fr)}
+  .tools{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  nav{display:none}
+  .bar .btn{padding:.55rem .9rem;font-size:.85rem}
+  .brand{font-size:1.05rem}
+  .grid.cinema,.grid.motion{grid-template-columns:1fr}
+  .grid.shorts{gap:.9rem}
+}
+@media (max-width:380px){.bar .btn-ghost{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===================== STICKY HEADER + CTAs ===================== -->
+<header>
+  <div class="wrap bar">
+    <a class="brand glitch chrome" href="#top" data-text="ManzDavinci">ManzDavinci</a>
+    <nav aria-label="Sections">
+      <a href="#shorts">Shorts</a>
+      <a href="#cinematic">Cinematic</a>
+      <a href="#motion">Motion</a>
+      <a href="#stack">Tools</a>
+    </nav>
+    <div class="cta-row">
+      <!-- TODO: replace the Calendly link below with your own -->
+      <a class="btn btn-primary" href="https://calendly.com/YOUR-USERNAME/YOUR-MEETING" target="_blank" rel="noopener">Book a Meeting</a>
+      <!-- TODO: replace with your email address -->
+      <a class="btn btn-ghost" href="mailto:your@email.com?subject=Video%20editing%20inquiry">Email Me</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== HERO + SHOWREEL ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <h1>
+      <span class="chrome glitch" data-text="ManzDavinci">ManzDavinci</span>
+      <span class="sub">High-Retention &amp; Cinematic Video Editing</span>
+    </h1>
+    <p class="lead">Edits that hold attention past the first three seconds and still look like cinema. Shorts, long-form, color grading and motion graphics for creators and brands.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary btn-lg" href="https://calendly.com/YOUR-USERNAME/YOUR-MEETING" target="_blank" rel="noopener">Book a Meeting</a>
+      <a class="btn btn-ghost btn-lg" href="mailto:your@email.com?subject=Video%20editing%20inquiry">Email Me</a>
+    </div>
+
+    <!--
+      MAIN SHOWREEL
+      Option A (YouTube/Vimeo): put the EMBED url in data-embed.
+         YouTube: https://www.youtube.com/embed/VIDEO_ID
+         Vimeo:   https://player.vimeo.com/video/VIDEO_ID
+      Option B (your own file): put the path in data-mp4, e.g. data-mp4="videos/showreel.mp4"
+      Optional: data-poster="images/showreel.jpg" shows a thumbnail before it is clicked.
+      Videos only load when clicked, so the page stays fast.
+    -->
+    <div class="frame r16" data-title="ManzDavinci showreel"
+         data-embed=""
+         data-mp4=""
+         data-poster="">
+      <div class="ph"><span class="play"></span><span>Main showreel: paste your YouTube/Vimeo embed link in data-embed</span></div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ===================== PORTFOLIO 1: HIGH-RETENTION SHORTS (9:16) ===================== -->
+<section id="shorts">
+  <div class="wrap">
+    <h2 class="chrome">High-Retention Shorts</h2>
+    <p class="intro">Vertical edits for TikTok, Reels and YouTube Shorts: fast hooks, tight pacing, captions that keep people watching.</p>
+    <div class="grid shorts">
+      <!-- For each card: paste an embed link in data-embed OR an mp4 path in data-mp4. Edit the caption text underneath. -->
+      <figure>
+        <div class="frame r9" data-title="Short 1" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Short 1<br>9:16</span></div>
+        </div>
+        <figcaption><b>Short title 1</b>Niche / result (e.g. 2.1M views)</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r9" data-title="Short 2" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Short 2<br>9:16</span></div>
+        </div>
+        <figcaption><b>Short title 2</b>Niche / result</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r9" data-title="Short 3" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Short 3<br>9:16</span></div>
+        </div>
+        <figcaption><b>Short title 3</b>Niche / result</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r9" data-title="Short 4" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Short 4<br>9:16</span></div>
+        </div>
+        <figcaption><b>Short title 4</b>Niche / result</figcaption>
+      </figure>
+      <!-- To add more, copy one <figure>...</figure> block and paste it here. -->
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== PORTFOLIO 2: CINEMATIC & COLOR GRADING (16:9) ===================== -->
+<section id="cinematic">
+  <div class="wrap">
+    <h2 class="chrome">Cinematic &amp; Color Grading</h2>
+    <p class="intro">Story-driven edits and film-grade color in DaVinci Resolve: brand films, music visuals, documentary and long-form.</p>
+    <div class="grid cinema">
+      <figure>
+        <div class="frame r16" data-title="Cinematic 1" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Cinematic project 1 &middot; 16:9</span></div>
+        </div>
+        <figcaption><b>Project title 1</b>Client / what you did (edit, grade, sound)</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r16" data-title="Cinematic 2" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Cinematic project 2 &middot; 16:9</span></div>
+        </div>
+        <figcaption><b>Project title 2</b>Client / what you did</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r16" data-title="Cinematic 3" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Cinematic project 3 &middot; 16:9</span></div>
+        </div>
+        <figcaption><b>Project title 3</b>Client / what you did</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r16" data-title="Cinematic 4" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Cinematic project 4 &middot; 16:9</span></div>
+        </div>
+        <figcaption><b>Project title 4</b>Client / what you did</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== PORTFOLIO 3: MOTION GRAPHICS ===================== -->
+<section id="motion">
+  <div class="wrap">
+    <h2 class="chrome">Motion Graphics</h2>
+    <p class="intro">Animated titles, lower thirds, logo stings and explainer visuals built in After Effects.</p>
+    <div class="grid motion">
+      <figure>
+        <div class="frame r16" data-title="Motion 1" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Motion piece 1</span></div>
+        </div>
+        <figcaption><b>Piece title 1</b>Logo sting / title / explainer</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r16" data-title="Motion 2" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Motion piece 2</span></div>
+        </div>
+        <figcaption><b>Piece title 2</b>Logo sting / title / explainer</figcaption>
+      </figure>
+      <figure>
+        <div class="frame r16" data-title="Motion 3" data-embed="" data-mp4="" data-poster="">
+          <div class="ph"><span class="play"></span><span>Motion piece 3</span></div>
+        </div>
+        <figcaption><b>Piece title 3</b>Logo sting / title / explainer</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECH STACK ===================== -->
+<section class="stack" id="stack">
+  <div class="wrap">
+    <h2 class="chrome">Tools I edit with</h2>
+    <p class="intro">Edit in the right tool for the job, deliver in the format you need.</p>
+    <div class="tools">
+      <div class="tool glitch" data-text="DaVinci Resolve">DaVinci Resolve</div>
+      <div class="tool glitch" data-text="CapCut PC">CapCut PC</div>
+      <div class="tool glitch" data-text="Premiere Pro">Premiere Pro</div>
+      <div class="tool glitch" data-text="After Effects">After Effects</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER CTA ===================== -->
+<section class="final" id="contact">
+  <div class="wrap">
+    <h2 class="chrome">Have a video to edit?</h2>
+    <p class="intro">Book a call to talk through your project, or send the details by email.</p>
+    <div class="cta-row">
+      <!-- TODO: your Calendly link -->
+      <a class="btn btn-primary btn-lg" href="https://calendly.com/YOUR-USERNAME/YOUR-MEETING" target="_blank" rel="noopener">Book a Meeting</a>
+      <!-- TODO: your email -->
+      <a class="btn btn-ghost btn-lg" href="mailto:your@email.com?subject=Video%20editing%20inquiry">Email Me</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="yr">2026</span> ManzDavinci. All rights reserved.</div>
+</footer>
+
+<script>
+/* ===== CLICK-TO-LOAD VIDEOS =====
+   Every .frame reads two attributes:
+     data-embed = YouTube/Vimeo EMBED url  (https://www.youtube.com/embed/VIDEO_ID)
+     data-mp4   = path or url to your own mp4 (videos/my-edit.mp4)
+   If both are empty the placeholder stays. Nothing loads until clicked, so the page stays fast. */
+(function () {
+  var frames = document.querySelectorAll('.frame');
+
+  frames.forEach(function (f) {
+    var poster = f.dataset.poster;
+    if (poster) { f.style.background = 'center/cover no-repeat url("' + poster + '")'; }
+    if (f.dataset.embed || f.dataset.mp4) {
+      f.setAttribute('role', 'button');
+      f.setAttribute('tabindex', '0');
+      f.setAttribute('aria-label', 'Play ' + (f.dataset.title || 'video'));
+      var ph = f.querySelector('.ph span:last-child');
+      if (ph) { ph.textContent = f.dataset.title || 'Play video'; }
+    }
+    function load() {
+      if (f.classList.contains('is-live')) return;
+      var embed = f.dataset.embed, mp4 = f.dataset.mp4, el;
+      if (embed) {
+        el = document.createElement('iframe');
+        el.src = embed + (embed.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+        el.title = f.dataset.title || 'Video';
+        el.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+        el.allowFullscreen = true;
+        el.loading = 'lazy';
+      } else if (mp4) {
+        el = document.createElement('video');
+        el.src = mp4; el.controls = true; el.autoplay = true; el.playsInline = true;
+        if (f.dataset.poster) el.poster = f.dataset.poster;
+      } else { return; }
+      f.appendChild(el);
+      f.classList.add('is-live');
+      f.removeAttribute('tabindex');
+    }
+    f.addEventListener('click', load);
+    f.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); }
+    });
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
