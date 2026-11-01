@@ -119,30 +119,7 @@ footer{border-top:1px solid var(--line);padding:1.4rem 0;color:var(--muted);font
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
-  @media (max-width: 768px) {
-  /* Stop the website from scrolling left/right off the screen */
-  body, html {
-    overflow-x: hidden !important;
-  }
-  
-  /* Force the video grid into a single stacked column */
-  .grid, .grid.shorts {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-    gap: 30px !important;
-  }
-
-  /* Make videos fit perfectly on the iPhone screen */
-  video {
-    width: 90vw !important;
-    max-width: 400px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    border-radius: 12px;
-  }
-}
+ 
 </style>
 </head>
 
